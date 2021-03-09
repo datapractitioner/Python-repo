@@ -6,8 +6,21 @@ import pandas_datareader as pdr
     The Backend will be supported with FastAPI
 '''
 
-#app = FastAPI()
+def fetch_data(ticker):
+    '''
+        Fetch data of a particular ticker
+    '''
+    return
 
-#@app.get('/')
-#def read_root():
-#    return {'Hello' : 'World'}
+def create_graph():
+    '''
+        Create and return graph components
+    '''
+    return
+
+app = FastAPI()
+
+@app.get('/')
+def read_root():
+    return {'Hello' : 'World'}
+
