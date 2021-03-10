@@ -1,6 +1,8 @@
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import pandas_datareader as pdr
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 '''
     The Backend will be supported with FastAPI
@@ -19,8 +21,10 @@ def create_graph():
     return
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory = 'static'), name = 'static')
+templates = Jinja2Templates(directory = 'templates')
 
 @app.get('/')
-def read_root():
-    return {'Hello' : 'World'}
+async def main_page(request: Request):
+    return templates.TemplateResponse('index.html', {'request' : request})
 
