@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 import pandas_datareader as pdr
 from pandas_datareader.iex.ref import SymbolsReader
 from fastapi.staticfiles import StaticFiles
@@ -39,6 +39,11 @@ async def main_page(request: Request):
 
     # fetch tickers
     simboli = get_tickers()
+    print('dakdakhdadhakdhas')
 
     return templates.TemplateResponse('index.html', {'request' : request, 'tickers' : simboli})
+
+@app.post('/')
+async def selected_ticker(request : Request, myCountry : str = Form(...)):
+    return {'mycountry' : myCountry}
 
