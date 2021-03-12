@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel='stylesheet' type = 'text/css' href = '../static/style.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <p>
@@ -9,10 +10,23 @@
         </p>
 
         <div>
-            <select>
-                <option value = 'TSLA'>TSLA</option>    
-                <option value = 'AMZN'>AMZN</option>
-            </select>
+            <form autocomplete="off" action="/action_page.php">
+                <div class="autocomplete" style="width:300px;">
+                    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+                </div>
+                <input type="submit">
+            </form>
         </div>
+
+        <meta id = 'my-data' data-name = "{{ tickers }}">
+
+        <script>
+            var data = $('#my-data').data('name');
+            var array = data.split(',');
+            console.log(array[0], array[1], array[2])
+        </script>
+
+
+
     </body>
 </html>
