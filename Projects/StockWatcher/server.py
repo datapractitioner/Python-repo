@@ -34,16 +34,16 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory = 'static'), name = 'static')
 templates = Jinja2Templates(directory = 'templates')
 
+simboli = get_tickers()
+
 @app.get('/')
 async def main_page(request: Request):
-
     # fetch tickers
-    simboli = get_tickers()
-    print('dakdakhdadhakdhas')
-
+    #simboli = get_tickers()
+    #print('dakdakhdadhakdhas')
     return templates.TemplateResponse('index.html', {'request' : request, 'tickers' : simboli})
 
 @app.post('/')
 async def selected_ticker(request : Request, myCountry : str = Form(...)):
-    return {'mycountry' : myCountry}
-
+    print(myCountry)
+    return templates.TemplateResponse('index.html', {'request' : request, 'tickers' : simboli})
