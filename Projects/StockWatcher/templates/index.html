@@ -3,6 +3,19 @@
     <head>
         <link rel='stylesheet' type = 'text/css' href = '../static/style.css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link
+            href="https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.css"
+            rel="stylesheet" type="text/css">
+        <link
+            href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.css"
+            rel="stylesheet" type="text/css">
+        <link
+            href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.css"
+            rel="stylesheet" type="text/css">
+
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js"></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js"></script>
     </head>
     <body>
         <p>
@@ -17,6 +30,11 @@
         </form>
 
         <meta id = 'my-data' data-name = "{{ tickers }}">
+
+        <div>
+            {{div_image|safe}}
+        </div>
+        {{script_image|safe}}
 
         <script>
             var data = $('#my-data').data('name');
