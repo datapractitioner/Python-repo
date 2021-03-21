@@ -2,3 +2,6 @@ fastapi
 bokeh==2.1.1
 pandas_datareader
 uvicorn
+python-multipart
+aiofiles
+pandas
