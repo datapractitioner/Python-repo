@@ -45,8 +45,6 @@ simboli = get_tickers()
 @app.get('/')
 async def main_page(request: Request):
     # fetch tickers
-    #simboli = get_tickers()
-    #print('dakdakhdadhakdhas')
     return templates.TemplateResponse('index.html', {'request' : request, 'tickers' : simboli})
 
 @app.post('/')
